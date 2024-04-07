@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLUELESS CHRONICLES: Life Lessons from Noobs</title>
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('https://th.bing.com/th/id/OIG2.SoXX62yF.l_G7dJ43edX?w=1024&h=1024&rs=1&pid=ImgDetMain');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+  }
+  
+  .container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    margin-top: 50px;
+    border-radius: 20px;
+    width: 500px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  textarea {
+    width: calc(100% - 40px);
+    height: 150px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    resize: none;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  button {
+    padding: 15px 40px;
+    background-color: #6ab04c;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #4c8c5c;
+  }
+  
+  .posts {
+    margin-top: 40px;
+  }
+  
+  .post {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .banner {
+    background-color: #f9e3d0;
+    padding: 15px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  #qrcode {
+    margin-top: 20px;
+  }
+
+  .footer {
+    margin-top: auto;
+    margin-bottom: 20px;
+  }
+  
+  .footer a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="banner">CLUELESS CHRONICLES: Life Lessons from Noobs</div>
+  <h2>Advice from 20 Something-Year-Olds about Life</h2>
+  <textarea id="postContent" placeholder="Type your post here..."></textarea>
+  <button onclick="submitPost()">Submit</button>
+  <div class="posts" id="posts"></div>
+</div>
+<div class="footer">
+  <a href="#" onclick="openForum()">Back to Forum</a>
+</div>
+<script>
+  function submitPost() {
+    var postContent = document.getElementById("postContent").value;
+    if (postContent.trim() === "") {
+      alert("Please enter your post content.");
+      return;
+    }
+    // Send post to Google Apps Script Web App
+    fetch('https://script.google.com/macros/s/AKfycbxv64NqpDZ1KRFIv2xTyRj0RA10ph44etG5q9BFPNyOFF89_GVOdeE8MWBGJshj1PdyUQ/exec', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ story: postContent })
+       
+    }).then(() => {
+      alert('Story submitted successfully!');
+      document.getElementById("postContent").value = ""; // Clear the textarea
+    }).catch(error => {
+      console.error('Error:', error);
+    });
+  }
+
+  function openForum() {
+    // Implement the functionality to open your forum page
+    window.open("forum.html", "_blank");
+  }
+</script>
+</body>
+</html>
