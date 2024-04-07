@@ -69,15 +69,28 @@
   }
 
   .banner {
-    background-color: #f9e3d0;
-    padding: 15px;
-    border-radius: 20px;
-    margin-bottom: 30px;
-    font-size: 28px;
-    font-weight: bold;
-    color: #333;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  }
+  background-color: #f9e3d0; /* Banner color */
+  padding: 15px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Added text shadow for depth */
+  text-align: center; /* Center the text */
+    }
+
+.banner .main-header {
+  display: block; /* Ensures it takes up the full width */
+    }
+
+.banner .sub-header {
+  display: block; /* Ensures it takes up the full width */
+  font-size: 22px; /* Smaller font size for the subtitle */
+  font-weight: normal; /* Less emphasis on the subtitle */
+  margin-top: 10px; /* Spacing between the main header and subtitle */
+    }
+
 
   #qrcode {
     margin-top: 20px;
@@ -97,8 +110,11 @@
 </head>
 <body>
 <div class="container">
-  <div class="banner">CLUELESS CHRONICLES: Life Lessons from Noobs</div>
-  <h2>Advice from 20 Something-Year-Olds about Life</h2>
+    <div class="banner">
+        <span class="main-header">CLUELESS CHRONICLES:</span>
+        <span class="sub-header">Life Lessons from Noobs</span>
+      </div>     
+  <h2>Advice from Younglings about Life</h2>
   <textarea id="postContent" placeholder="Type your post here..."></textarea>
   <button onclick="submitPost()">Submit</button>
   <div class="posts" id="posts"></div>
